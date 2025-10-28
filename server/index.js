@@ -26,7 +26,8 @@ io.on('connection', (socket) => {
     });
 
     socket.on('send_message', (data) => {
-        socket.to(data.room).emit('receive_message', data)
+        socket.to(data.room).emit('receive_message', data);
+        console.log("Got the message", data);
     });
 
     socket.on('typing', ({ username, room }) => {
@@ -50,6 +51,8 @@ server.listen(3001, () => {
 // npm install cors
 // npm install socket.io
 // node index.js (run server)
+
+// npm install socket.io-client (for client side)
 
 // on()-kono 1 ta event jodi lesten korte chai, jokhon oi event ta ghote, tokhon
 // notification pabo.
